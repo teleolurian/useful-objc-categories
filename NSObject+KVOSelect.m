@@ -8,7 +8,7 @@
     NSString *i;
     NSMutableString *selectorString = [NSMutableString string];
     for (i in [keyPath componentsSeparatedByString:@"."]){
-        [selectorString appendString:[keyPath capitalizedString]];
+        [selectorString appendString:[NSString stringWithFormat:@"%@%@", [[i substringToIndex:1] uppercaseString], [i substringFromIndex:1]]];
     }
     if ([[NSNull null] isEqual:oldObject]) oldObject = nil;
     if ([[NSNull null] isEqual:newObject]) newObject = nil;
@@ -17,3 +17,4 @@
 }
 
 @end
+
